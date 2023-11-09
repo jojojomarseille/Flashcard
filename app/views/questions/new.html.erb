@@ -1,0 +1,30 @@
+<h1>Nouvelle question</h1>
+
+<%= form_with(model: @question, url: questions_path, local: true) do |form| %>
+  <div>
+    <%= form.label :question %>
+    <%= form.text_field :question %>
+  </div>
+  
+  <div>
+    <%= form.label :answer1 %>
+    <%= form.text_field :answer1 %>
+  </div>
+
+  <div>
+    <%= form.label :answer2 %>
+    <%= form.text_field :answer2 %>
+  </div>
+
+  <div>
+    <%= form.label :answer3 %>
+    <%= form.text_field :answer3 %>
+  </div>
+
+  <div>
+    <%= form.label :answer4 %>
+    <%= form.text_field :answer4 %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
