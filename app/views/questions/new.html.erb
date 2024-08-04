@@ -26,5 +26,15 @@
     <%= form.text_field :answer4 %>
   </div>
 
+  <div>
+    <p>Select the correct answers:</p>
+    <%= form.check_box :correct_answers_array, { multiple: true }, '1', nil %> 1
+    <%= form.check_box :correct_answers_array, { multiple: true }, '2', nil %> 2
+    <%= form.check_box :correct_answers_array, { multiple: true }, '3', nil %> 3
+    <%= form.check_box :correct_answers_array, { multiple: true }, '4', nil %> 4
+    <%= form.check_box :correct_answers_array, { multiple: true }, 'toutes', nil %> Toutes les réponses
+    <%= form.check_box :correct_answers_array, { multiple: true }, 'aucunes', nil %> Aucune
+  </div>
+
   <%= form.submit %>
 <% end %>

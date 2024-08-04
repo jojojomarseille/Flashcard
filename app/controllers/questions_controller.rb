@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:question, :answer1, :answer2, :answer3, :answer4)
+    params.require(:question).permit(:question, :answer1, :answer2, :answer3, :answer4, correct_answers_array: [])
   end
 
 end
