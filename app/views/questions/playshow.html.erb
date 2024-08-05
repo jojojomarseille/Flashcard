@@ -1,0 +1,21 @@
+<h1>Question</h1>
+
+<p>Question : <%= @question.question %></p>
+
+<%= form_with(url: check_answer_question_path(@question), local: true, method: :post) do |form| %>
+  <div>
+    <p>Select the correct answers:</p>
+    <%= form.check_box :answers, { multiple: true }, '1', nil %> 1 <%= @question.answer1 %>
+    <%= form.check_box :answers, { multiple: true }, '2', nil %> 2 <%= @question.answer2 %>
+    <%= form.check_box :answers, { multiple: true }, '3', nil %> 3 <%= @question.answer3 %>
+    <%= form.check_box :answers, { multiple: true }, '4', nil %> 4 <%= @question.answer4 %>
+    <%= form.check_box :answers, { multiple: true }, 'toutes', nil %> Toutes les réponses
+    <%= form.check_box :answers, { multiple: true }, 'aucunes', nil %> Aucune
+  </div>
+
+  <%= form.submit %>
+<% end %>
+
+<%= link_to "retour a l'index", questions_path %>
+
+

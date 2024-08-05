@@ -1,20 +1,16 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  
-  # get 'quizzs/show'
-  # get 'quizzs/index'
-  # get 'quizzs/create'
-  # get 'quizzs/new'
-  # get 'questions/show'
-  # get 'questions/index'
-  # get 'questions/create'
-  # get 'questions/new'
 
-  resources :questions, only: [:index, :show, :new, :create]
+  resources :questions, only: [:index, :show, :new, :create] do
+    member do
+      get 'playshow'
+      post 'check_answer'
+    end
+  end
+
+  get 'success', to: 'pages#success'
+  get 'fail', to: 'pages#fail'
   
   devise_for :users, path: 'users'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  # devise_for :users, controllers: {
-  #       sessions: 'users/sessions'
-  #     }
+
 end
