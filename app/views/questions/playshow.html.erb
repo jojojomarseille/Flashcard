@@ -19,3 +19,99 @@
 <%= link_to "retour a l'index", questions_path %>
 
 
+<%# cards %>
+<div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                           <div class="card" style="width: 488px; height: 284px; border-radius: 5%; flex-direction: row; background-color: #d9d9d9; display: flex;">
+                                <div class="card-body-front-left" style="display: flex; justify-content: center; align-items: center; width: 50%; height: 100%;">
+                                    <div style="background-color: blue">
+                                        <h5 class="Thématique">Thématique</h5>
+                                    </div>
+                                    <div style="background-color: red">
+                                        <h5 class="Thématique"><%= @question.question %></h5>
+                                        <%= form_with(url: check_answer_question_path(@question), local: true, method: :post) do |form| %>
+                                        <p class="card-text">
+                                            Select the correct answers:
+                                            <ul>
+                                                <li><%= form.check_box :answers, { multiple: true }, '1', nil %> 1 <%= @question.answer1 %></li>
+                                                <li><%= form.check_box :answers, { multiple: true }, '2', nil %> 2 <%= @question.answer2 %></li>
+                                                <li><%= form.check_box :answers, { multiple: true }, '3', nil %> 3 <%= @question.answer3 %></li>
+                                                <li><%= form.check_box :answers, { multiple: true }, '4', nil %> 4 <%= @question.answer4 %></li>
+                                                <li><%= form.check_box :answers, { multiple: true }, 'toutes', nil %> Toutes les réponses</li>
+                                                <li><%= form.check_box :answers, { multiple: true }, 'aucunes', nil %> Aucune</li>
+                                            </ul>
+                                             <%= form.submit %>
+                                            <% end %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card-body-front-right" style="display: flex; justify-content: center; align-items: center; width: 50%;">
+                                    <div>
+                                        <h5 class="card-title">foto</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="card">
+                                
+                                <div class="card-body">
+                                    <h5 class="card-title">Back Side</h5>
+                                    <p class="card-text">React JS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        .flip-card {
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        /* .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        } */
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #f8f9fa;
+            color: #000;
+        }
+
+        .flip-card-back {
+            background-color: #343a40;
+            color: #000;
+            transform: rotateY(180deg);
+        }
+
+        .card-img-top {
+            max-height: 200px;
+            object-fit: cover;
+        }
+    </style>
+
