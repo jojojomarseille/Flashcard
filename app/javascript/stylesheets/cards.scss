@@ -1,0 +1,115 @@
+.flip-card {
+    perspective: 1000px;
+}
+
+.card {
+  width: 488px; 
+  height: 284px; 
+  border-radius: 5%; 
+  flex-direction: row; 
+  background-color: #d9d9d9; 
+  display: flex;
+}
+
+.card-question-container {
+  display: flex; 
+  margin-top: -10px;
+}
+
+.card-form-container {
+  display: flex; 
+  margin-top: -10px;
+}
+
+.card-top-container {
+  display: flex; 
+  margin-top: 10px; 
+  width: 200px; 
+  justify-content: space-between; 
+  padding-right: 50px;
+}
+
+.card-top-image {
+  height: 30px; 
+  Width: 30px; 
+  border-radius: 50%; 
+  background-image: url('https://i.redd.it/5cyglg7pj53c1.jpeg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+} */
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-body-front-left {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
+  width: 50%; 
+  height: 100%;
+}
+
+.card-body-front-right {
+    display: flex; 
+    justify-content: center; 
+    border-radius: 0% 5% 5% 0%; 
+    align-items: center; 
+    width: 50%; 
+    background-image: url('https://cdn.britannica.com/06/96306-050-DFE8AFDC/Khao-Tapu-Ao-Phang-na-Thailand-National-Park.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+.flip-card-front {
+    background-color: #f8f9fa;
+    color: #000;
+}
+
+.flip-card-back {
+    background-color: #343a40;
+    color: #000;
+    transform: rotateY(180deg);
+}
+
+.card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.card-checkbox-list {
+    padding: 0;
+    list-style-type:none; 
+    font-size: 11px;
+}
+
+.card-checkbox-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Aligner verticalement les éléments */
+    flex-direction: row-reverse; /* Inverser l'ordre pour que le label soit avant la checkbox */
+    margin: 5px 0; /* Espacement entre les éléments de la liste */
+}
+.card-checkbox-list label {
+    margin-right: 5px; /* Espacement entre le label et la checkbox */
+}

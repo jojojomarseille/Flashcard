@@ -10,6 +10,7 @@ import 'channels';
 
 import 'bootstrap';
 import '../stylesheets/application';
+import '../stylesheets/cards';
 
 Rails.start();
 Turbolinks.start();

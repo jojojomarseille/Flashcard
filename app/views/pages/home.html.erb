@@ -1,3 +1,77 @@
-<h1>Homepage</h1>
-<p>hello, i'm the basic homepage</p>
-<%= link_to "retour a l'index", questions_path %>
+<div class="container" style="max-width: 100%;">
+    <section style="margin: 0px;">
+        <div style="width: 100%; height: 829px; background-image: url('https://focus.swiss/wp-content/uploads/2022/09/iStock-1334063560-scaled.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+          <div style="color: white;">
+            <p style="font-size: 80px; padding-top: 300px; text-align: center">Le meilleur moyens d'apprendre</p>
+            <a href="/questions/new" class="button-link">Je crée ma flash card</a>
+          </div>
+        </div>
+    </section>
+    <section style="height: 550px; display: flex;">
+        <div class="section-2-left" style="width: 50%; display: flex; justify-content: center; align-items: center;">
+            <div class="card">
+                                <div class="card-body-front-left">
+                                    <div class="card-top-container">
+                                        <div class="card-top-image"></div>
+                                        <p>Thématique</p>
+                                    </div>
+                                    <div class="card-question-container">
+                                        <h6 class="Thématique">Question</h6>
+                                    </div>
+                                    <div class="card-form-container">
+                                        
+                                        <p class="card-text">
+                                            <ul class="card-checkbox-list">
+                                                <li>Reponse 1</li>
+                                                <li>réponse 2</li>
+                                                <li>réponse 3</li>
+                                                <li>réponse 4</li>
+                                                <li> Toutes les réponses</li>
+                                                <li> Aucune</li>
+                                            </ul>
+                                          
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card-body-front-right">
+                                    <%# <div>
+                                        <h5 class="card-title">foto</h5>
+                                    </div> %>
+                                </div>
+                            </div>
+        </div>
+        <div class="section-2-right" style="width: 50%; display: flex; justify-content: center; align-items: center;">
+            <p style="font-size: 50px; width: 70%; margin: auto;">Tes cartes de revisions simples et efficaces</p>
+        </div>
+    </section>
+    <section style="background-color: #429AD9; height: 550px; display: flex;">
+        section 3
+    </section>
+    <section style="height: 550px; display: flex;">
+        section 4
+    </section>
+    <section style="background-color: #F3A940; height: 550px; display: flex;">
+        section 5
+    </section>
+
+</div>
+
+<style>
+        .button-link {
+            display: inline-block;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 50%;
+        }
+
+        .button-link:hover {
+            background-color: darkgreen;
+        }
+    </style>
