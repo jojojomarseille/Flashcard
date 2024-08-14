@@ -1,5 +1,10 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :playshow, :check_answer]
+  before_action :set_question, only:[:show, :playshow, :check_answer]
+  before_action :authenticate_user!, only: [:index, :index_perso, :new, :create]
+
+  def new
+    @question = current_user.questions.build
+  end
 
   def show
     # @question = Question.find(params[:id])
@@ -9,12 +14,16 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  def index_perso
+    @questions = current_user.questions
+  end
+
   def create
-    @question = Question.new(question_params)
+    @question = current_user.questions.build(question_params)
     if @question.save
-      redirect_to @question
+      redirect_to @question, notice: 'Question was successfully created.'
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -31,10 +40,6 @@ class QuestionsController < ApplicationController
     else
       redirect_to fail_path, alert: 'Mauvaise réponse. Essaie encore !'
     end
-  end
-
-  def new
-    @question = Question.new
   end
 
   private

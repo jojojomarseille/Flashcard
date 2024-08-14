@@ -6,6 +6,9 @@ Rails.application.routes.draw do
       get 'playshow'
       post 'check_answer'
     end
+    collection do
+      get 'index_perso'
+    end 
   end
 
   get 'success', to: 'pages#success'

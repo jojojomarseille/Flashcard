@@ -1,62 +1,6 @@
-<h1>Question</h1>
+
 
 <%= link_to "retour a l'index", questions_path %>
 
-<div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                           <div class="card">
-                                <div class="card-body-front-left">
-                                    <div class="card-top-container">
-                                        <div class="card-top-image"></div>
-                                        <p>Thématique</p>
-                                    </div>
-                                    <div class="card-question-container">
-                                        <h6 class="Thématique"><%= @question.question %></h6>
-                                    </div>
-                                    <div class="card-form-container">
-                                        <%= form_with(url: check_answer_question_path(@question), local: true, method: :post, html: { style: 'width: 200px;' }) do |form| %>
-                                        <p class="card-text">
-                                            <ul class="card-checkbox-list">
-                                                <li><%= form.check_box :answers, { multiple: true }, '1', nil %> <%= @question.answer1 %></li>
-                                                <li><%= form.check_box :answers, { multiple: true }, '2', nil %> <%= @question.answer2 %></li>
-                                                <li><%= form.check_box :answers, { multiple: true }, '3', nil %> <%= @question.answer3 %></li>
-                                                <li><%= form.check_box :answers, { multiple: true }, '4', nil %> <%= @question.answer4 %></li>
-                                                <li><%= form.check_box :answers, { multiple: true }, 'toutes', nil %> Toutes les réponses</li>
-                                                <li><%= form.check_box :answers, { multiple: true }, 'aucunes', nil %> Aucune</li>
-                                            </ul>
-                                             <%= form.submit 'Valider', style: 'font-size: 11px; background-color: green; color: white; border: none; padding: 10px 20px; cursor: pointer;' %>
-                                            <% end %>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="card-body-front-right">
-                                    <%# <div>
-                                        <h5 class="card-title">foto</h5>
-                                    </div> %>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flip-card-back">
-                            <div class="card">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title">Back Side</h5>
-                                    <p class="card-text">React JS</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <style>
-      
-    </style>
+<%= render partial: 'questions/card', locals: { question: @question } %>
 
