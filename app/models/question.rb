@@ -1,9 +1,9 @@
 class Question < ApplicationRecord
     belongs_to :user
 
-  def correct_answers_array
-    correct_answers.split(',').map(&:strip)
-  end
+  # def correct_answers_array
+  #   correct_answers.split(',').map(&:strip)
+  # end
 
   # Définir le champ correct_answers à partir d'un tableau
   def correct_answers_array=(values)

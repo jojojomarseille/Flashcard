@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_12_162257) do
+ActiveRecord::Schema.define(version: 2024_12_19_014801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2024_08_12_162257) do
     t.text "answer2"
     t.text "answer3"
     t.text "answer4"
-    t.string "quizz_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "correct_answers"
@@ -29,8 +28,17 @@ ActiveRecord::Schema.define(version: 2024_08_12_162257) do
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
+  create_table "quizz_flashcards", force: :cascade do |t|
+    t.bigint "quizz_id", null: false
+    t.bigint "question_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_quizz_flashcards_on_question_id"
+    t.index ["quizz_id", "question_id"], name: "index_quizz_flashcards_on_quizz_id_and_question_id", unique: true
+    t.index ["quizz_id"], name: "index_quizz_flashcards_on_quizz_id"
+  end
+
   create_table "quizzs", force: :cascade do |t|
-    t.string "question_id"
     t.text "title"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
@@ -54,4 +62,6 @@ ActiveRecord::Schema.define(version: 2024_08_12_162257) do
   end
 
   add_foreign_key "questions", "users"
+  add_foreign_key "quizz_flashcards", "questions"
+  add_foreign_key "quizz_flashcards", "quizzs"
 end
