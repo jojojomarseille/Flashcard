@@ -1,2 +1,21 @@
-<h1>Quizzs#show</h1>
-<p>Find me in app/views/quizzs/show.html.erb</p>
+<h1><%="#{@quizz.title}"%></h1>
+<p><%="#{@quizz.description}"%></p>
+
+
+<h3>Questions associées</h3>
+<ul>
+  <% @questions.each do |question| %>
+    <li><%= question.question %></li>
+  <% end %>
+</ul>
+
+<h3>Ajouter des Questions</h3>
+<%= form_with url: add_questions_quizz_path(@quizz), local: true do %>
+  <div class="form-group">
+    <%= label_tag 'questions_ids', 'Sélectionnez des questions' %>
+    <%= select_tag 'question_ids[]', options_from_collection_for_select(Question.all, :id, :question), multiple: true, class: "form-control", size: 10 %>
+  </div>
+  <%= submit_tag "Ajouter", class: "btn btn-success" %>
+<% end %>
+
+<%= link_to 'Commencer le Quizz', start_quizz_path(@quizz), class: 'btn btn-primary' %>

@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
 
   def index_perso
     @questions = current_user.questions
+    @quizzs = current_user.quizzs
   end
 
   def create

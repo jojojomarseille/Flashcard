@@ -1,0 +1,4 @@
+<h2>Résultats du Quizz : <%= @quizz.title %></h2>
+<p>Vous avez répondu correctement à <%= @correct_answers %> questions sur <%= @total_questions %>.</p>
+<%= link_to 'Rejouer', start_quizz_path(@quizz) %>
+<%= link_to 'Retour à la liste', quizzs_path %>

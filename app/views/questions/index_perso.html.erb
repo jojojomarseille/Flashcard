@@ -1,9 +1,18 @@
 <div style="background-color: #f5f5f5; height: 500px; display: flex; justify-content: center; align-items: center;">
   <%# <%= link_to "Créer une question", new_question_path, class: "create-question-btn" %> 
-
+<h3>Questions</h3>
   <ul>
   <% @questions.each do |question| %>
     <li><%= link_to question.question, question_path(question) %> <%= link_to 'Jouer cette question', playshow_question_path(question), class: 'btn btn-primary' %></li>
   <% end %>
 </ul>
+
+<h3>Mes Quizzs</h3>
+<ul>
+  <% @quizzs.each do |quizz| %>
+    <li><%= link_to quizz.title, quizz_path(quizz) %></li>
+  <% end %>
+</ul>
+<%= link_to 'Créer un Nouveau Quizz', new_quizz_path, class: 'btn btn-primary' %>
+
 </div>

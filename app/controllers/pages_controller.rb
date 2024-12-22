@@ -9,4 +9,4 @@ class PagesController < ApplicationController
     def fail
       # Logique d'échec
     end
-  end
+end

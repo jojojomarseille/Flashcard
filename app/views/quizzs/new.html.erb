@@ -1,2 +1,27 @@
-<h1>Quizzs#new</h1>
-<p>Find me in app/views/quizzs/new.html.erb</p>
+<%= form_for @quizz do |f| %>
+  <div>
+    <%= f.label :title, "Nom du Quizz" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description %>
+  </div>
+
+ <div id="questions-container">
+    <h3>Ajouter des questions</h3>
+    
+    <%= select_tag 'quizz[question_ids][]', 
+          options_from_collection_for_select(current_user.questions, :id, :question),
+          prompt: "Sélectionner des questions",
+          multiple: true, 
+          size: 10 %> <!-- Ajout d'une taille pour afficher plusieurs options à la fois -->
+  </div>
+  
+  <div>
+    <%= f.submit "Créer Quizz" %>
+  </div>
+<% end %>
+
+

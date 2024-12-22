@@ -1,0 +1,27 @@
+
+<h2><%= @quizz.title %></h2>
+<p>Question <%= session[:current_question_index] + 1 %> sur <%= session[:quizz_question_ids].size %></p>
+
+<%= form_with url: answer_quizz_path(@quizz), method: :post, local: true do %>
+  <p><%= @question.question %></p>
+  
+  <!-- Afficher les quatre propositions de réponse -->
+  <div>
+    <%= radio_button_tag :answer, "1" %>
+    <%= label_tag "answer_1", @question.answer1 %>
+  </div>
+  <div>
+    <%= radio_button_tag :answer, "2" %>
+    <%= label_tag "answer_2", @question.answer2 %>
+  </div>
+  <div>
+    <%= radio_button_tag :answer, "3" %>
+    <%= label_tag "answer_3", @question.answer3 %>
+  </div>
+  <div>
+    <%= radio_button_tag :answer, "4" %>
+    <%= label_tag "answer_4", @question.answer4 %>
+  </div>
+  
+  <%= submit_tag "Répondre" %>
+<% end %>
